@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Greeny Homepage" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <link rel="apple-touch-icon" type="image/webp" href="/192x192.webp" />
+    <meta name="theme-color" content="#66A696" />
+    <link rel="manifest" href="/manifest.json" />
+    <base href="/" />
+    <title>Greeny</title>
+    <style>
+      @font-face {
+        font-family: "Pretendard";
+        src: url("/fonts/Pretendard/Pretendard.eot");
+        src: url("/fonts/Pretendard/Pretendard.eot?#iefix")
+            format("embedded-opentype"),
+          url("/fonts/Pretendard/Pretendard.woff2") format("woff2"),
+          url("/fonts/Pretendard/Pretendard.woff") format("woff"),
+          url("/fonts/Pretendard/Pretendard.ttf") format("truetype"),
+          url("/fonts/Pretendard/Pretendard.svg#Pretendard") format("svg");
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="modal"></div>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>
