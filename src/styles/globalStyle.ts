@@ -21,12 +21,30 @@ const GlobalStyle = createGlobalStyle`
         overflow: hidden;
     }
 
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    button, input {
+        background-color: transparent;
+
+        border: none;
+    }
+
     img {
         -webkit-user-drag: none;
         -moz-user-drag: none;
         -ms-user-drag: none;
         -webkit-user-select: none;
         user-select: none;
+    }
+
+    picture {
+        display: flex;
     }
 `;
 

@@ -15,7 +15,9 @@ const colors = {
 };
 
 const commons = {
-  ellipsis: "text-overflow: ellipsis; white-space: nowrap; overflow: hidden;",
+  boxShadow: `padding: 8px; margin: 8px; background-color: ${colors.background1}; box-shadow: 0 0 8px rgba(80, 80, 80, 0.1); border-radius: 10px;`,
+  ellipsis:
+    "width: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;",
 };
 
 const theme = {

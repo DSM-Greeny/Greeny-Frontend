@@ -1,5 +1,7 @@
+import MyPage from "./pages/myPage";
+
 const App = () => {
-  return <></>;
+  return <MyPage />;
 };
 
 export default App;

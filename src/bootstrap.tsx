@@ -10,9 +10,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 const rootNode = document.getElementById("root");
 if (!rootNode) throw new Error("Root Node Not Found");
 const root = ReactDOM.createRoot(rootNode);
-
 const queryClient = new QueryClient();
-
 root.render(
   <QueryClientProvider client={queryClient}>
     <RecoilRoot>
