@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.40.0"],\
             ["eslint-plugin-react-hooks", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:4.6.0"],\
             ["eslint-plugin-react-refresh", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:0.3.5"],\
+            ["kakao.maps.d.ts", "npm:0.1.38"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:18.2.0"],\
             ["react-intersection-observer", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:9.4.3"],\
@@ -4488,6 +4489,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.40.0"],\
             ["eslint-plugin-react-hooks", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:4.6.0"],\
             ["eslint-plugin-react-refresh", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:0.3.5"],\
+            ["kakao.maps.d.ts", "npm:0.1.38"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:18.2.0"],\
             ["react-intersection-observer", "virtual:5c4f8077a56f0e7da850e20b19864a712392801f42e87979107601063d76ccd443711b28e1e01c2386fb183560f610ef8d5f0e36c5afe2f666f20b4a036f086e#npm:9.4.3"],\
@@ -4833,6 +4835,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/json5-npm-2.2.3-9962c55073-2a7436a933.zip/node_modules/json5/",\
           "packageDependencies": [\
             ["json5", "npm:2.2.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["kakao.maps.d.ts", [\
+        ["npm:0.1.38", {\
+          "packageLocation": "./.yarn/cache/kakao.maps.d.ts-npm-0.1.38-03eb4dd220-4033de2f1a.zip/node_modules/kakao.maps.d.ts/",\
+          "packageDependencies": [\
+            ["kakao.maps.d.ts", "npm:0.1.38"]\
           ],\
           "linkType": "HARD"\
         }]\

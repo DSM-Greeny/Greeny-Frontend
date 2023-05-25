@@ -3048,6 +3048,7 @@ __metadata:
     eslint: ^8.38.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.3.4
+    kakao.maps.d.ts: ^0.1.38
     react: ^18.2.0
     react-dom: ^18.2.0
     react-intersection-observer: ^9.4.3
@@ -3344,6 +3345,13 @@ __metadata:
   bin:
     json5: lib/cli.js
   checksum: 2a7436a93393830bce797d4626275152e37e877b265e94ca69c99e3d20c2b9dab021279146a39cdb700e71b2dd32a4cebd1514cd57cee102b1af906ce5040349
+  languageName: node
+  linkType: hard
+
+"kakao.maps.d.ts@npm:^0.1.38":
+  version: 0.1.38
+  resolution: "kakao.maps.d.ts@npm:0.1.38"
+  checksum: 4033de2f1aa23d0d10c2585b4297aab0a0203b76bac63584f3833bdcdb8baf79ea23d77eeaaefa570128a2fd947f5f29ea7e66038b1bc8609c34c8887296951b
   languageName: node
   linkType: hard
 
