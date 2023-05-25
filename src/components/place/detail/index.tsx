@@ -22,31 +22,25 @@ const PlaceDetail = ({ place }: PlaceDetailProps) => {
           type="button"
           aria-label="뒤로가기"
           onClick={() =>
-            setSelectedState({ id: "", place_name: "", x: "", y: "" })
+            setSelectedState({ id: 0, place_name: "", x: 0, y: 0 })
           }
         >
-          <figure>
-            <picture>
-              <source type="image/webp" srcSet={GoBackImg} />
-              <img alt="뒤로가기 화살표" width="14" height="14" />
-            </picture>
-          </figure>
+          <picture>
+            <source type="image/webp" srcSet={GoBackImg} />
+            <img alt="뒤로가기 화살표" width="14" height="14" />
+          </picture>
         </button>
         <h1>{place.place_name}</h1>
         <p>{place.category_name}</p>
       </div>
       <span>{place.address_name}</span>
-      <div>
+      <ul>
         {dummyImage.map((v, i) => (
-          <img
-            key={`landscape${i}`}
-            src={v}
-            alt={`주변 풍경 ${i}번`}
-            width={150}
-            height={112}
-          />
+          <li key={`landscape${i}`}>
+            <img src={v} alt={`주변 풍경 ${i}번`} width={150} height={112} />
+          </li>
         ))}
-      </div>
+      </ul>
       <h2>장소 설명</h2>
       <p>{`전화번호: ${place.phone || "없음"}`}</p>
       <p>
@@ -66,7 +60,7 @@ const PlaceDetail = ({ place }: PlaceDetailProps) => {
 export default PlaceDetail;
 
 const Wrapper = styled.article`
-  width: 345px;
+  width: 90vw;
 
   display: flex;
   flex-direction: column;
@@ -85,16 +79,14 @@ const Wrapper = styled.article`
 
     h1 {
       margin-left: 8px;
+      margin-right: 8px;
 
       font-size: ${({ theme }) => theme.fontSizes.text};
+      word-break: keep-all;
     }
 
     p {
       margin-left: auto;
-
-      width: max-content;
-
-      font-size: ${({ theme }) => theme.fontSizes.subText};
     }
   }
 
@@ -102,13 +94,20 @@ const Wrapper = styled.article`
     margin-left: 22px;
   }
 
+  ul {
+    width: 100%;
+
+    display: flex;
+    gap: 8px;
+
+    overflow-x: auto;
+  }
+
   h2 {
     font-size: ${({ theme }) => theme.fontSizes.subText};
   }
 
   > p {
-    width: 100%;
-
     font-size: ${({ theme }) => theme.fontSizes.description};
   }
 `;

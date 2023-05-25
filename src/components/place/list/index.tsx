@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { PlaceType } from "../../../types/place";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import { SearchStateAtom } from "../../../atoms/searchState";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
@@ -34,8 +34,10 @@ const PlaceList = ({ listRef }: PlaceListProps) => {
                 v.address_name.includes(searchState)
             )
             .map((v, i, o) => (
-              <Fragment key={`place${i}`}>
-                <li
+              <li key={`place${i}`}>
+                <button
+                  type="button"
+                  aria-label="장소 상세보기"
                   onClick={() =>
                     setSelectedState({
                       id: v.id,
@@ -45,17 +47,17 @@ const PlaceList = ({ listRef }: PlaceListProps) => {
                     })
                   }
                 >
-                  <button type="button" aria-label="장소 상세보기">
-                    <p>{v.place_name}</p>
-                    <span>{v.address_name}</span>
-                  </button>
-                </li>
+                  <p>{v.place_name}</p>
+                  <span>{v.address_name}</span>
+                </button>
                 {i < o.length - 1 && <hr />}
-              </Fragment>
+              </li>
             ))
         : placeState.map((v, i) => (
-            <Fragment key={`place${i}`}>
-              <li
+            <li key={`place${i}`}>
+              <button
+                type="button"
+                aria-label="장소 상세보기"
                 onClick={() =>
                   setSelectedState({
                     id: v.id,
@@ -65,13 +67,11 @@ const PlaceList = ({ listRef }: PlaceListProps) => {
                   })
                 }
               >
-                <button type="button" aria-label="장소 상세보기">
-                  <p>{v.place_name}</p>
-                  <span>{v.address_name}</span>
-                </button>
-              </li>
+                <p>{v.place_name}</p>
+                <span>{v.address_name}</span>
+              </button>
               {i < placeState.length - 1 && <hr />}
-            </Fragment>
+            </li>
           ))}
     </Wrapper>
   );
@@ -80,42 +80,42 @@ const PlaceList = ({ listRef }: PlaceListProps) => {
 export default PlaceList;
 
 const Wrapper = styled.ul`
-  width: 345px;
+  width: 90vw;
   height: 208px;
 
   overflow-y: scroll;
 
   ${({ theme }) => theme.commons.boxShadow}
 
-  li,
-  button {
-    width: 100%;
-  }
-
-  button {
-    min-height: 32px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    p {
-      font-size: 16px;
-    }
-
-    span {
-      margin-left: 8px;
-
-      text-align: end;
-    }
-  }
-
-  hr {
-    margin-top: 8px;
-    margin-bottom: 8px;
-
+  li {
     width: 100%;
 
-    border: 1px solid ${({ theme }) => theme.colors.background2};
+    button {
+      width: 100%;
+      min-height: 32px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-size: 16px;
+      }
+
+      span {
+        margin-left: 8px;
+
+        text-align: end;
+      }
+    }
+
+    hr {
+      margin-top: 8px;
+      margin-bottom: 8px;
+
+      width: 100%;
+
+      border: 1px solid ${({ theme }) => theme.colors.background2};
+    }
   }
 `;

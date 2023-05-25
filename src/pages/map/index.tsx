@@ -32,6 +32,8 @@ const MapPage = () => {
 export default MapPage;
 
 const Wrapper = styled.main`
+  padding-left: 5vw;
+  padding-right: 5vw;
   margin-top: 16px;
 
   width: 100vw;

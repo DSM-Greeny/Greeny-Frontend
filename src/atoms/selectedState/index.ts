@@ -1,18 +1,18 @@
 import { atom } from "recoil";
 
 export interface SelectedStateAtomType {
-  id: string;
+  id: number;
   place_name: string;
-  x: string;
-  y: string;
+  x: number;
+  y: number;
 }
 
 export const SelectedStateAtom = atom<SelectedStateAtomType>({
   key: "selectedState",
   default: {
-    id: "",
+    id: 0,
     place_name: "",
-    x: "",
-    y: "",
+    x: 0,
+    y: 0,
   },
 });

@@ -16,6 +16,8 @@ const MapPageMenu = () => {
 export default MapPageMenu;
 
 const Wrapper = styled.article`
+  width: 90vw;
+
   display: flex;
   flex-direction: column;
   align-items: center;
