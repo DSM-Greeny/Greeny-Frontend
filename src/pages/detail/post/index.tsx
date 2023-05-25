@@ -35,6 +35,8 @@ const PostDetailPage = () => {
 export default PostDetailPage;
 
 const Wrapper = styled.main`
+  padding-left: 5vw;
+  padding-right: 5vw;
   margin-top: 16px;
 
   width: 100vw;
@@ -49,8 +51,7 @@ const Wrapper = styled.main`
   article {
     padding-bottom: 32px;
 
-    width: 345px;
-    height: max-content;
+    width: 90vw;
 
     display: flex;
     flex-direction: column;
@@ -58,14 +59,13 @@ const Wrapper = styled.main`
     gap: 8px;
 
     h1 {
-      width: 345px;
+      width: 90vw;
     }
 
     div {
       padding-bottom: 8px;
-      margin-bottom: 16px;
 
-      width: 345px;
+      width: 90vw;
 
       display: flex;
       justify-content: space-between;
@@ -74,7 +74,7 @@ const Wrapper = styled.main`
     }
 
     p {
-      width: 345px;
+      width: 90vw;
 
       font-weight: 600;
     }
@@ -85,7 +85,7 @@ const Wrapper = styled.main`
     }
 
     img {
-      max-width: 345px;
+      max-width: 90vw;
       max-height: 240px;
     }
   }

@@ -1,62 +1,59 @@
 import styled from "styled-components";
 import PostItem from "../../item";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { dummyPosts } from "../../../../libs/constants/posts";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { ScrollStateAtom } from "../../../../atoms/scrollState";
+import { SearchStateAtom } from "../../../../atoms/searchState";
+import {
+  CategoryStateAtom,
+  CategoryStateAtomType,
+} from "../../../../atoms/categoryState";
 
 interface CommunityPagePostListProps {
   listRef: React.RefObject<HTMLUListElement>;
 }
 
 const CommunityPagePostList = ({ listRef }: CommunityPagePostListProps) => {
+  const categoryState =
+    useRecoilValue<CategoryStateAtomType>(CategoryStateAtom);
+  const searchState = useRecoilValue<string>(SearchStateAtom);
   const [scrollState, setScrollState] = useRecoilState<number>(ScrollStateAtom);
-  const [scrollable, setScrollable] = useState<boolean>(false);
   useEffect(() => listRef.current?.scroll(0, scrollState), []);
-  useEffect(
-    () =>
-      setScrollable(
-        listRef.current?.scrollHeight! > listRef.current?.clientHeight!
-      ),
-    [listRef]
-  );
   return (
     <Wrapper
       ref={listRef}
-      scrollable={`${scrollable}`}
       onScroll={(e) => setScrollState(e.currentTarget.scrollTop)}
     >
-      {dummyPosts.map((v) => (
-        <PostItem
-          key={`post${v.id}`}
-          id={v.id}
-          title={v.title}
-          writer={v.writer}
-          writeDate={v.writeDate}
-          preview={v.preview}
-        />
-      ))}
+      {dummyPosts
+        .filter(
+          (v) =>
+            v.title.includes(searchState) &&
+            (categoryState.category === "전체" ||
+              v.category === categoryState.category)
+        )
+        .map((v) => (
+          <PostItem
+            key={`post${v.id}`}
+            id={v.id}
+            title={v.title}
+            writer={v.writer}
+            writeDate={v.writeDate}
+            preview={v.preview}
+          />
+        ))}
     </Wrapper>
   );
 };
 
 export default CommunityPagePostList;
 
-interface WrapperProps {
-  scrollable: "true" | "false";
-}
-
-const Wrapper = styled.ul<WrapperProps>`
-  margin-top: 16px;
+const Wrapper = styled.ul`
+  margin-top: 8px;
   margin-bottom: 16px;
 
-  ${(props) =>
-    props.scrollable === "true"
-      ? `padding-right: 8px;
-
-width: 345px;`
-      : "width: 353px;"}
-  height: calc(100vh - 198px);
+  width: 90vw;
+  height: calc(100vh - 183px);
 
   display: flex;
   flex-direction: column;

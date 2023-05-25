@@ -2,34 +2,44 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import CategoryItem from "../item";
 import { dummyCategories } from "../../../libs/constants/categories";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { CategoryStateAtomType } from "../../../atoms/categoryState";
 import { CategoryStateAtom } from "../../../atoms/categoryState";
+import { ScrollStateAtom } from "../../../atoms/scrollState";
 
-const CategoryList = () => {
+interface CategoryListProps {
+  listRef: React.RefObject<HTMLUListElement>;
+}
+
+const CategoryList = ({ listRef }: CategoryListProps) => {
+  const setScrollState = useSetRecoilState<number>(ScrollStateAtom);
   const [categoryState, setCategoryState] =
     useRecoilState<CategoryStateAtomType>(CategoryStateAtom);
   const [scrollable, setScrollable] = useState<boolean>(false);
-  const listRef = useRef<HTMLUListElement>(null);
+  const categoryRef = useRef<HTMLUListElement>(null);
   useEffect(
     () =>
       setScrollable(
-        listRef.current?.scrollWidth! > listRef.current?.clientWidth!
+        categoryRef.current?.scrollWidth! > categoryRef.current?.clientWidth!
       ),
-    [listRef]
+    [categoryRef]
   );
   return (
-    <Wrapper ref={listRef} scrollable={`${scrollable}`}>
+    <Wrapper ref={categoryRef} scrollable={`${scrollable}`}>
       {dummyCategories.map((v, i) => (
         <CategoryItem
           key={`category${i}`}
           category={v}
           active={v === categoryState.category}
-          onClick={() =>
-            setCategoryState((prevState) => {
-              return { ...prevState, category: v };
-            })
-          }
+          onClick={() => {
+            if (v !== categoryState.category) {
+              setCategoryState((prevState) => {
+                return { ...prevState, category: v };
+              });
+              listRef.current!.scrollTop = 0;
+              setScrollState(0);
+            }
+          }}
         />
       ))}
     </Wrapper>
@@ -45,7 +55,7 @@ interface WrapperProps {
 const Wrapper = styled.ul<WrapperProps>`
   ${(props) => props.scrollable === "true" && "padding-bottom: 8px;"}
 
-  width: 345px;
+  width: 90vw;
 
   display: flex;
   gap: 8px;
@@ -57,6 +67,8 @@ const Wrapper = styled.ul<WrapperProps>`
   .active {
     background-color: ${({ theme }) => theme.colors.main};
 
-    color: ${({ theme }) => theme.colors.background1};
+    button {
+      color: ${({ theme }) => theme.colors.background1};
+    }
   }
 `;

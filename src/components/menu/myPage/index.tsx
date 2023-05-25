@@ -11,10 +11,7 @@ const MyPageMenu = ({ children }: MyPageMenuProps) => {
 export default MyPageMenu;
 
 const Wrapper = styled.article`
-  width: 345px;
-
-  display: flex;
-  flex-direction: column;
+  width: 90vw;
 
   ${({ theme }) => theme.commons.boxShadow}
 

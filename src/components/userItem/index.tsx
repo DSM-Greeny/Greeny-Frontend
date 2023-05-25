@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import { EditImg } from "../../assets/images";
 import { UserLoadResponseType } from "../../types/user";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { dummyUser } from "../../libs/constants/user";
 
 const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
   const [inputState, setInputState] = useState<string>(dummyUser.nickName);
   const [editState, setEditState] = useState<boolean>(false);
-  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <Wrapper>
       <figure>
@@ -19,8 +18,8 @@ const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
         <div>
           {editState ? (
             <input
-              ref={inputRef}
               type="text"
+              autoFocus={true}
               placeholder="새로운 별명"
               value={inputState}
               onChange={(e) => setInputState(e.currentTarget.value)}
@@ -31,17 +30,12 @@ const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
           <button
             type="button"
             aria-label="별명 수정하기"
-            onClick={() => {
-              setEditState(!editState);
-              inputRef.current?.focus();
-            }}
+            onClick={() => setEditState(!editState)}
           >
-            <figure>
-              <picture>
-                <source type="image/webp" srcSet={EditImg} />
-                <img alt="수정 펜" width="12" height="12" />
-              </picture>
-            </figure>
+            <picture>
+              <source type="image/webp" srcSet={EditImg} />
+              <img alt="수정 펜" width="12" height="12" />
+            </picture>
           </button>
         </div>
         <span>
@@ -57,7 +51,7 @@ const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
 export default UserItem;
 
 const Wrapper = styled.article`
-  width: 345px;
+  width: 90vw;
   height: 80px;
 
   display: flex;
@@ -71,14 +65,17 @@ const Wrapper = styled.article`
     margin-right: 16px;
   }
 
-  div {
-    width: 100%;
+  > div {
+    width: calc(100% - 84px);
+
+    display: flex;
+    flex-direction: column;
+
     div {
-      width: calc(100% - 8px);
+      width: 100%;
 
       display: flex;
       justify-content: space-between;
-      align-items: center;
 
       input {
         width: 100%;
@@ -96,7 +93,7 @@ const Wrapper = styled.article`
       }
     }
 
-    p {
+    span {
       margin-top: 4px;
     }
   }

@@ -21,6 +21,8 @@ const NewsDetailPage = () => {
 export default NewsDetailPage;
 
 const Wrapper = styled.main`
+  padding-left: 5vw;
+  padding-right: 5vw;
   margin-top: 16px;
 
   width: 100vw;
@@ -33,7 +35,7 @@ const Wrapper = styled.main`
   overflow-y: auto;
 
   article {
-    width: 345px;
+    width: 90vw;
 
     display: flex;
     flex-direction: column;
@@ -43,11 +45,11 @@ const Wrapper = styled.main`
     h1 {
       margin-bottom: 16px;
 
-      width: 345px;
+      width: 90vw;
     }
 
     p {
-      width: 345px;
+      width: 90vw;
 
       font-weight: 600;
     }

@@ -31,6 +31,8 @@ const MyPage = () => {
 export default MyPage;
 
 const Wrapper = styled.main`
+  padding-left: 5vw;
+  padding-right: 5vw;
   margin-top: 16px;
 
   width: 100vw;
@@ -41,6 +43,6 @@ const Wrapper = styled.main`
   gap: 8px;
 
   h1 {
-    width: 345px;
+    width: 90vw;
   }
 `;

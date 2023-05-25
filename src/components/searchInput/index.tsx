@@ -28,12 +28,10 @@ const SearchInput = ({ listRef }: SearchInputProps) => {
         onChange={(e) => setInputState(e.currentTarget.value)}
       />
       <button type="submit">
-        <figure>
-          <picture>
-            <source type="image/webp" srcSet={SearchImg} />
-            <img alt="돋보기" width="16" height="16" />
-          </picture>
-        </figure>
+        <picture>
+          <source type="image/webp" srcSet={SearchImg} />
+          <img alt="돋보기" width="16" height="16" />
+        </picture>
       </button>
     </Wrapper>
   );
@@ -42,14 +40,18 @@ const SearchInput = ({ listRef }: SearchInputProps) => {
 export default SearchInput;
 
 const Wrapper = styled.form`
-  width: 345px;
-  height: 40px;
+  width: 90vw;
+  min-height: 40px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   ${({ theme }) => theme.commons.boxShadow}
+
+  padding: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
 
   input {
     width: calc(100% - 24px);

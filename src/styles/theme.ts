@@ -19,7 +19,7 @@ const fontSizes = {
   subTitle: "20px",
   text: "14px",
   subText: "12px",
-  description: "10px",
+  description: "12px",
 };
 
 const commons = {

@@ -8,8 +8,10 @@ interface CategoryItemProps {
 
 const CategoryItem = ({ active, category, onClick }: CategoryItemProps) => {
   return (
-    <Wrapper className={active ? "active" : undefined} onClick={onClick}>
-      {category}
+    <Wrapper className={active ? "active" : undefined}>
+      <button type="button" onClick={onClick}>
+        {category}
+      </button>
     </Wrapper>
   );
 };
@@ -17,18 +19,26 @@ const CategoryItem = ({ active, category, onClick }: CategoryItemProps) => {
 export default CategoryItem;
 
 const Wrapper = styled.li`
-  padding: 8px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-
-  width: max-content;
   height: 25px;
 
-  color: ${({ theme }) => theme.colors.background5};
-  font-size: ${({ theme }) => theme.fontSizes.description};
-  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   border: 1px solid ${({ theme }) => theme.colors.background5};
   border-radius: 100px;
   transition: background-color 0.25s ease, color 0.25s ease;
+
+  button {
+    padding: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    width: 100%;
+    height: 25px;
+
+    color: ${({ theme }) => theme.colors.background5};
+    font-size: ${({ theme }) => theme.fontSizes.description};
+    font-weight: 400;
+  }
 `;

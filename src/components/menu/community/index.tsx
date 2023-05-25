@@ -9,7 +9,7 @@ const CommunityPageMenu = () => {
   return (
     <Wrapper>
       <SearchInput listRef={listRef} />
-      <CategoryList />
+      <CategoryList listRef={listRef} />
       <CommunityPagePostList listRef={listRef} />
     </Wrapper>
   );

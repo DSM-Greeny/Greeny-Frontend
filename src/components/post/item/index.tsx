@@ -25,8 +25,7 @@ const PostItem = ({
 export default PostItem;
 
 const Wrapper = styled.li`
-  width: calc(100% - 8px);
-  height: 62px;
+  width: 100%;
 
   a {
     width: 100%;
@@ -35,6 +34,7 @@ const Wrapper = styled.li`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    gap: 4px;
 
     div {
       width: 100%;
@@ -44,10 +44,6 @@ const Wrapper = styled.li`
 
         ${({ theme }) => theme.commons.ellipsis}
       }
-    }
-
-    span {
-      margin-top: 4px;
     }
   }
 `;
