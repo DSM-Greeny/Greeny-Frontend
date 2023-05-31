@@ -7,4 +7,3 @@ export interface PostLoadResponseType {
   preview?: string;
   content?: string;
 }
-A
