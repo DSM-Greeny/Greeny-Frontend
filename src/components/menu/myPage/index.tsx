@@ -15,8 +15,14 @@ const Wrapper = styled.article`
 
   ${({ theme }) => theme.commons.boxShadow}
 
+  padding: 0;
+
   a,
   button {
+    padding: 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
     width: 100%;
     height: 32px;
 
@@ -28,13 +34,21 @@ const Wrapper = styled.article`
     font-weight: 400;
   }
 
+  :first-child {
+    padding-top: 32px;
+  }
+
+  :last-child {
+    padding-bottom: 32px;
+  }
+
   .red {
     color: ${({ theme }) => theme.colors.error};
   }
 
   hr {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
 
     width: 100%;
 

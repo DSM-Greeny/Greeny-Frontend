@@ -13,6 +13,12 @@ const GlobalStyle = createGlobalStyle`
         text-align: start;
         
         box-sizing: border-box;
+        
+        -webkit-user-drag: none;
+        -moz-user-drag: none;
+        -ms-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
     html, body {
@@ -75,11 +81,6 @@ const GlobalStyle = createGlobalStyle`
     img {
         border-radius: 4px;
         object-fit: contain;
-        -webkit-user-drag: none;
-        -moz-user-drag: none;
-        -ms-user-drag: none;
-        -webkit-user-select: none;
-        user-select: none;
     }
 
     picture {
