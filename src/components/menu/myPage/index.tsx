@@ -20,11 +20,9 @@ const Wrapper = styled.article`
   a,
   button {
     padding: 16px;
-    padding-top: 24px;
-    padding-bottom: 24px;
 
     width: 100%;
-    height: 32px;
+    height: 56px;
 
     display: flex;
     align-items: center;
@@ -32,14 +30,6 @@ const Wrapper = styled.article`
     color: ${({ theme }) => theme.colors.background6};
     font-size: 16px;
     font-weight: 400;
-  }
-
-  :first-child {
-    padding-top: 32px;
-  }
-
-  :last-child {
-    padding-bottom: 32px;
   }
 
   .red {
@@ -50,7 +40,7 @@ const Wrapper = styled.article`
     margin-left: 16px;
     margin-right: 16px;
 
-    width: 100%;
+    width: calc(100% - 32px);
 
     border: 1px solid ${({ theme }) => theme.colors.background2};
   }

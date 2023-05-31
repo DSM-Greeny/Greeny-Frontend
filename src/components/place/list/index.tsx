@@ -87,10 +87,16 @@ const Wrapper = styled.ul`
 
   ${({ theme }) => theme.commons.boxShadow}
 
+  padding: 0px;
+
   li {
     width: 100%;
 
     button {
+      padding: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+
       width: 100%;
       min-height: 32px;
 
@@ -110,10 +116,10 @@ const Wrapper = styled.ul`
     }
 
     hr {
-      margin-top: 8px;
-      margin-bottom: 8px;
+      margin-left: 16px;
+      margin-right: 16px;
 
-      width: 100%;
+      width: calc(100% - 32px);
 
       border: 1px solid ${({ theme }) => theme.colors.background2};
     }
