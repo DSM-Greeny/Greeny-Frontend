@@ -15,7 +15,13 @@ const MyPage = () => {
       />
       <MyPagePostList />
       <MyPageMenu>
-        <a href="https://github.com/DSM-Greeny">오픈소스 라이센스</a>
+        <a
+          href="https://github.com/DSM-Greeny"
+          target="_blank"
+          rel="noopener noreferer nofollow"
+        >
+          오픈소스 라이센스
+        </a>
         <hr />
         <button type="button">로그아웃</button>
       </MyPageMenu>

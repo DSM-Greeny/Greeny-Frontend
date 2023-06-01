@@ -7,6 +7,7 @@ import { dummyUser } from "../../libs/constants/user";
 const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
   const [inputState, setInputState] = useState<string>(dummyUser.nickName);
   const [editState, setEditState] = useState<boolean>(false);
+  const isInputActive = editState === true;
   return (
     <Wrapper>
       <figure>
@@ -16,7 +17,7 @@ const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
       </figure>
       <div>
         <div>
-          {editState ? (
+          {isInputActive ? (
             <input
               type="text"
               autoFocus={true}

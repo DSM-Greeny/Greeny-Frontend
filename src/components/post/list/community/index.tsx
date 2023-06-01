@@ -3,7 +3,10 @@ import PostItem from "../../item";
 import { useEffect } from "react";
 import { dummyPosts } from "../../../../libs/constants/posts";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { ScrollStateAtom } from "../../../../atoms/scrollState";
+import {
+  ScrollStateAtom,
+  ScrollStateAtomType,
+} from "../../../../atoms/scrollState";
 import { SearchStateAtom } from "../../../../atoms/searchState";
 import {
   CategoryStateAtom,
@@ -18,12 +21,21 @@ const CommunityPagePostList = ({ listRef }: CommunityPagePostListProps) => {
   const categoryState =
     useRecoilValue<CategoryStateAtomType>(CategoryStateAtom);
   const searchState = useRecoilValue<string>(SearchStateAtom);
-  const [scrollState, setScrollState] = useRecoilState<number>(ScrollStateAtom);
-  useEffect(() => listRef.current?.scroll(0, scrollState), []);
+  const [scrollState, setScrollState] =
+    useRecoilState<ScrollStateAtomType>(ScrollStateAtom);
+  useEffect(
+    () =>
+      scrollState.page === "community"
+        ? listRef.current?.scroll(0, scrollState.position)
+        : setScrollState({ page: "community", position: 0 }),
+    []
+  );
   return (
     <Wrapper
       ref={listRef}
-      onScroll={(e) => setScrollState(e.currentTarget.scrollTop)}
+      onScroll={(e) =>
+        setScrollState({ page: "", position: e.currentTarget.scrollTop })
+      }
     >
       {dummyPosts
         .filter(

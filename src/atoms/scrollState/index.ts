@@ -1,6 +1,11 @@
 import { atom } from "recoil";
 
-export const ScrollStateAtom = atom<number>({
+export interface ScrollStateAtomType {
+  page: "mypage" | "community" | "place" | "";
+  position: number;
+}
+
+export const ScrollStateAtom = atom<ScrollStateAtomType>({
   key: "scrollState",
-  default: 0,
+  default: { page: "", position: 0 },
 });

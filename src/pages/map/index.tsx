@@ -14,11 +14,11 @@ const MapPage = () => {
   const selectedState =
     useRecoilValue<SelectedStateAtomType>(SelectedStateAtom);
   const placeState = useRecoilValue<PlaceType[]>(PlaceStateAtom);
-  const hasSelectedId = selectedState.id;
+  const isSelectedSet = selectedState.id !== 0;
   return (
     <Wrapper>
       <Map />
-      {hasSelectedId ? (
+      {isSelectedSet ? (
         <PlaceDetail
           place={placeState.filter((v) => v.id == selectedState.id)[0]}
         />

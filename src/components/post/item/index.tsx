@@ -11,7 +11,7 @@ const PostItem = ({
 }: PostLoadResponseType) => {
   return (
     <Wrapper>
-      <Link to={`${id}`}>
+      <Link to={`/community/${id}`}>
         <div>
           <h3>{title}</h3>
           <p>{preview}</p>

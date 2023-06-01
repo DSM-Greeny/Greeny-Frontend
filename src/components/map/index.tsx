@@ -14,9 +14,9 @@ const Map = () => {
   const [selected, setSelectedState] =
     useRecoilState<SelectedStateAtomType>(SelectedStateAtom);
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
-  const hasExecuted = useRef<boolean>(false),
-    mapRef = useRef<HTMLDivElement>(null),
-    tooltip = useRef<kakao.maps.InfoWindow | null>(null);
+  const hasExecuted = useRef<boolean>(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const tooltip = useRef<kakao.maps.InfoWindow | null>(null);
   useEffect(() => {
     const closeTooltip = () => tooltip.current && tooltip.current.close();
     if (map && selected.id) {
@@ -57,21 +57,21 @@ const Map = () => {
           const markerImageUrl =
             "https://media.discordapp.net/attachments/1077850822341300244/1110422003493646417/marker.webp";
           const newMap = new kakao.maps.Map(mapRef.current!, {
-              center: new kakao.maps.LatLng(
-                position.coords.latitude,
-                position.coords.longitude
-              ),
-              level: 13,
-            }),
-            markerImage = new kakao.maps.MarkerImage(
-              markerImageUrl,
-              new kakao.maps.Size(16, 16),
-              {
-                spriteOrigin: new kakao.maps.Point(0, 0),
-                spriteSize: new kakao.maps.Size(16, 16),
-              }
+            center: new kakao.maps.LatLng(
+              position.coords.latitude,
+              position.coords.longitude
             ),
-            places = new kakao.maps.services.Places();
+            level: 13,
+          });
+          const markerImage = new kakao.maps.MarkerImage(
+            markerImageUrl,
+            new kakao.maps.Size(16, 16),
+            {
+              spriteOrigin: new kakao.maps.Point(0, 0),
+              spriteSize: new kakao.maps.Size(16, 16),
+            }
+          );
+          const places = new kakao.maps.services.Places();
           const initMarker = (
             data: kakao.maps.services.PlacesSearchResult,
             status: kakao.maps.services.Status

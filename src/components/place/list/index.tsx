@@ -8,7 +8,10 @@ import {
   SelectedStateAtomType,
 } from "../../../atoms/selectedState";
 import { PlaceStateAtom } from "../../../atoms/placeState";
-import { ScrollStateAtom } from "../../../atoms/scrollState";
+import {
+  ScrollStateAtom,
+  ScrollStateAtomType,
+} from "../../../atoms/scrollState";
 
 interface PlaceListProps {
   listRef: React.RefObject<HTMLUListElement>;
@@ -19,14 +22,24 @@ const PlaceList = ({ listRef }: PlaceListProps) => {
   const searchState = useRecoilValue<string>(SearchStateAtom);
   const setSelectedState =
     useSetRecoilState<SelectedStateAtomType>(SelectedStateAtom);
-  const [scrollState, setScrollState] = useRecoilState<number>(ScrollStateAtom);
-  useEffect(() => listRef.current?.scroll(0, scrollState), []);
+  const [scrollState, setScrollState] =
+    useRecoilState<ScrollStateAtomType>(ScrollStateAtom);
+  const isSearchStateSet = searchState !== "";
+  useEffect(
+    () =>
+      scrollState.page === "place"
+        ? listRef.current?.scroll(0, scrollState.position)
+        : setScrollState({ page: "place", position: 0 }),
+    []
+  );
   return (
     <Wrapper
       ref={listRef}
-      onScroll={(e) => setScrollState(e.currentTarget.scrollTop)}
+      onScroll={(e) =>
+        setScrollState({ page: "place", position: e.currentTarget.scrollTop })
+      }
     >
-      {searchState
+      {isSearchStateSet
         ? placeState
             .filter(
               (v) =>
@@ -81,7 +94,7 @@ export default PlaceList;
 
 const Wrapper = styled.ul`
   width: 90vw;
-  height: 208px;
+  height: calc(100vh - 529px);
 
   overflow-y: scroll;
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { dummyNews } from "../../../libs/constants/news";
 
 const NewsDetailPage = () => {
-  const content = dummyNews.content
+  const formattedContent = dummyNews.content
     .split(/\n/)
     .map((v) => v.trim())
     .filter((v) => v);
@@ -10,7 +10,7 @@ const NewsDetailPage = () => {
     <Wrapper>
       <article>
         <h1>{dummyNews.title}</h1>
-        {content.map((v, i) => (
+        {formattedContent.map((v, i) => (
           <p key={`paragraph${i}`}>{v}</p>
         ))}
       </article>

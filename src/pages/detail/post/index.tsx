@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const PostDetailPage = () => {
   const { id } = useParams();
   const post = dummyPosts.filter((v) => v.id === parseInt(id!))[0];
-  const content = post
+  const formattedContent = post
     .content!.split(/\n/)
     .map((v) => v.trim())
     .filter((v) => v);
@@ -18,7 +18,7 @@ const PostDetailPage = () => {
           <span>{`작성자 ${post.writer}`}</span>
           <span>{post.writeDate}</span>
         </div>
-        {content.map((v, i) =>
+        {formattedContent.map((v, i) =>
           isHttpsUrl(v) ? (
             <figure key={`image${i}`}>
               <img src={v} alt="" />

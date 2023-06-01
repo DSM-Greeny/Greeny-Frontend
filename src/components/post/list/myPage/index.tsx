@@ -1,17 +1,40 @@
 import styled from "styled-components";
 import PostItem from "../../item";
 import { dummyPosts } from "../../../../libs/constants/posts";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useRecoilState } from "recoil";
+import {
+  ScrollStateAtom,
+  ScrollStateAtomType,
+} from "../../../../atoms/scrollState";
 
 const MyPagePostList = () => {
   const listRef = useRef<HTMLUListElement>(null);
+  const [scrollState, setScrollState] =
+    useRecoilState<ScrollStateAtomType>(ScrollStateAtom);
+  useEffect(
+    () =>
+      scrollState.page === "mypage"
+        ? listRef.current?.scroll(0, scrollState.position)
+        : setScrollState({ page: "mypage", position: 0 }),
+    []
+  );
   return (
     <Wrapper>
       <h2>작성한 게시글</h2>
-      <ul ref={listRef}>
+      <ul
+        ref={listRef}
+        onScroll={(e) =>
+          setScrollState({
+            page: "mypage",
+            position: e.currentTarget.scrollTop,
+          })
+        }
+      >
         {dummyPosts.map((v) => (
           <PostItem
             key={`post${v.id}`}
+            id={v.id}
             title={v.title}
             writeDate={v.writeDate}
             preview={v.preview}
