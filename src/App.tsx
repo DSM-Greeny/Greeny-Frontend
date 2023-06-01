@@ -4,8 +4,20 @@ import MapPage from "./pages/map";
 import MyPage from "./pages/myPage";
 import PostDetailPage from "./pages/detail/post";
 import NewsDetailPage from "./pages/detail/news";
+import { useSetRecoilState } from "recoil";
+import { UserAgentStateAtom } from "./atoms/userAgentState";
+import { useEffect } from "react";
 
 const App = () => {
+  const setUserAgentState = useSetRecoilState<string>(UserAgentStateAtom);
+
+  useEffect(() => {
+    const iOS = navigator.userAgent.match(/iOS_App/i);
+    const Android = navigator.userAgent.match(/Android_App/i);
+    if (iOS) setUserAgentState("iOS");
+    else if (Android) setUserAgentState("Android");
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
