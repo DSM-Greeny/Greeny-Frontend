@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const UserAgentStateAtom = atom<string>({
+export const UserAgentStateAtom = atom<"Android" | "iOS" | "">({
   key: "userAgentState",
   default: "",
 });
