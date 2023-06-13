@@ -41,7 +41,7 @@ const CategoryList = ({ listRef }: CategoryListProps) => {
                 return { ...prevState, category: v };
               });
               listRef.current!.scrollTop = 0;
-              setScrollState(0);
+              setScrollState((prevState) => ({ ...prevState, position: 0 }));
             }
           }}
         />
