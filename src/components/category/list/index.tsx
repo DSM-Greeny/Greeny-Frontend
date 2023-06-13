@@ -5,14 +5,18 @@ import { dummyCategories } from "../../../libs/constants/categories";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { CategoryStateAtomType } from "../../../atoms/categoryState";
 import { CategoryStateAtom } from "../../../atoms/categoryState";
-import { ScrollStateAtom } from "../../../atoms/scrollState";
+import {
+  ScrollStateAtom,
+  ScrollStateAtomType,
+} from "../../../atoms/scrollState";
 
 interface CategoryListProps {
   listRef: React.RefObject<HTMLUListElement>;
 }
 
 const CategoryList = ({ listRef }: CategoryListProps) => {
-  const setScrollState = useSetRecoilState<number>(ScrollStateAtom);
+  const setScrollState =
+    useSetRecoilState<ScrollStateAtomType>(ScrollStateAtom);
   const [categoryState, setCategoryState] =
     useRecoilState<CategoryStateAtomType>(CategoryStateAtom);
   const [scrollable, setScrollable] = useState<boolean>(false);
