@@ -62,7 +62,11 @@ const Wrapper = styled.form`
     font-weight: 400;
   }
 
-  input::placeholder {
+  input:focus {
+    outline: none;
+  }
+
+  input ::placeholder {
     color: ${({ theme }) => theme.colors.background5};
   }
 `;
