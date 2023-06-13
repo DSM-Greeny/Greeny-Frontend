@@ -3,14 +3,15 @@ import { SearchImg } from "../../assets/images";
 import { useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { SearchStateAtom } from "../../atoms/searchState";
-import { ScrollStateAtom } from "../../atoms/scrollState";
+import { ScrollStateAtom, ScrollStateAtomType } from "../../atoms/scrollState";
 
 interface SearchInputProps {
   listRef: React.RefObject<HTMLUListElement>;
 }
 
 const SearchInput = ({ listRef }: SearchInputProps) => {
-  const setScrollState = useSetRecoilState<number>(ScrollStateAtom);
+  const setScrollState =
+    useSetRecoilState<ScrollStateAtomType>(ScrollStateAtom);
   const [searchState, setSearchState] = useRecoilState<string>(SearchStateAtom);
   const [inputState, setInputState] = useState<string>(searchState);
   return (
@@ -18,7 +19,7 @@ const SearchInput = ({ listRef }: SearchInputProps) => {
       onSubmit={(e) => {
         e.preventDefault();
         listRef.current!.scrollTop = 0;
-        setScrollState(0);
+        setScrollState((prevState) => ({ ...prevState, position: 0 }));
         setSearchState(inputState);
       }}
     >
