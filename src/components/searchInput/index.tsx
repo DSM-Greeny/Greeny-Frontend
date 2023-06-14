@@ -4,6 +4,10 @@ import { useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { SearchStateAtom } from "../../atoms/searchState";
 import { ScrollStateAtom, ScrollStateAtomType } from "../../atoms/scrollState";
+import {
+  SelectedStateAtom,
+  SelectedStateAtomType,
+} from "../../atoms/selectedState";
 
 interface SearchInputProps {
   listRef: React.RefObject<HTMLUListElement>;
@@ -12,13 +16,16 @@ interface SearchInputProps {
 export const SearchInput = ({ listRef }: SearchInputProps) => {
   const setScrollState =
     useSetRecoilState<ScrollStateAtomType>(ScrollStateAtom);
+  const setSelectedState =
+    useSetRecoilState<SelectedStateAtomType>(SelectedStateAtom);
   const [searchState, setSearchState] = useRecoilState<string>(SearchStateAtom);
   const [inputState, setInputState] = useState<string>(searchState);
   return (
     <Wrapper
       onSubmit={(e) => {
         e.preventDefault();
-        listRef.current!.scrollTop = 0;
+        if (listRef.current) listRef.current.scrollTop = 0;
+        setSelectedState({ id: 0, place_name: "", x: 0, y: 0 });
         setScrollState((prevState) => ({ ...prevState, position: 0 }));
         setSearchState(inputState);
       }}

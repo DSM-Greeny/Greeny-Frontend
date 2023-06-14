@@ -69,6 +69,8 @@ const Wrapper = styled.ul<WrapperProps>`
   .active {
     background-color: ${({ theme }) => theme.colors.main};
 
+    border: 1px solid ${({ theme }) => theme.colors.main};
+
     button {
       color: ${({ theme }) => theme.colors.background1};
     }
