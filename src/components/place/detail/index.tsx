@@ -26,7 +26,7 @@ export const PlaceDetail = ({ place }: PlaceDetailProps) => {
           }
         >
           <picture>
-            <source type="image/webp" srcSet={GoBackImg} />
+            <source type="image/svg+xml" srcSet={GoBackImg} />
             <img alt="뒤로가기 화살표" width="14" height="14" />
           </picture>
         </button>
@@ -37,7 +37,16 @@ export const PlaceDetail = ({ place }: PlaceDetailProps) => {
       <ul>
         {dummyImage.map((v, i) => (
           <li key={`landscape${i}`}>
-            <img src={v} alt={`주변 풍경 ${i}번`} width={150} height={112} />
+            <figure>
+              <picture>
+                <img
+                  src={v}
+                  alt={`주변 풍경 ${i}번`}
+                  width={150}
+                  height={112}
+                />
+              </picture>
+            </figure>
           </li>
         ))}
       </ul>

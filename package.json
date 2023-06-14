@@ -7,7 +7,11 @@
     "url": "https://github.com/DSM-Greeny/Greeny-Frontend.git"
   },
   "description": "Greeny Frontend",
-  "author": "izzysden <izzysden@naver.com>",
+  "author": {
+    "name": "izzysden",
+    "email": "izzysden@naver.com",
+    "url": "https://github.com/izzysden"
+  },
   "homepage": "https://github.com/DSM-Greeny/Greeny-Frontend",
   "type": "module",
   "scripts": {

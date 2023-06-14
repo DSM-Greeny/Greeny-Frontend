@@ -30,7 +30,7 @@ export const SearchInput = ({ listRef }: SearchInputProps) => {
       />
       <button type="submit">
         <picture>
-          <source type="image/webp" srcSet={SearchImg} />
+          <source type="image/svg+xml" srcSet={SearchImg} />
           <img alt="돋보기" width="16" height="16" />
         </picture>
       </button>

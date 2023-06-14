@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { dummyUser } from "../../libs/constants/user";
 import { sendBridge } from "../../libs/apis/bridge";
 import { useRecoilValue } from "recoil";
 import { UserAgentStateAtom } from "../../atoms/userAgentState";
@@ -14,11 +13,7 @@ export const MyPage = () => {
   return (
     <Wrapper>
       <h1>마이페이지</h1>
-      <UserCard
-        profile={dummyUser.profile}
-        nickName={dummyUser.nickName}
-        joinDate={dummyUser.joinDate}
-      />
+      <UserCard />
       <MyPagePostList />
       <MyPageMenu>
         <a

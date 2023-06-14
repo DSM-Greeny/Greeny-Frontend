@@ -1,4 +1,5 @@
-export { default as EditImg } from "./edit.webp";
-export { default as SearchImg } from "./search.webp";
-export { default as DummyImg } from "./dummy.webp";
-export { default as GoBackImg } from "./goBack.webp";
+export { default as EditImg } from "./edit.svg";
+export { default as SearchImg } from "./search.svg";
+export { default as DummyImg } from "./dummy.svg";
+export { default as GoBackImg } from "./goBack.svg";
+export { default as PfpImg } from "./pfp.jpg";

@@ -1,26 +1,42 @@
 import styled from "styled-components";
 import { EditImg } from "../../assets/images";
-import { UserLoadResponseType } from "../../types/user";
 import { useState } from "react";
-import { dummyUser } from "../../libs/constants/user";
+import { useRecoilState } from "recoil";
+import { UserStateAtom, UserStateAtomType } from "../../atoms/userState";
 
-export const UserCard = ({
-  profile,
-  nickName,
-  joinDate,
-}: UserLoadResponseType) => {
-  const [inputState, setInputState] = useState<string>(dummyUser.nickName);
+export const UserCard = () => {
+  const [userState, setUserState] =
+    useRecoilState<UserStateAtomType>(UserStateAtom);
+  const [inputState, setInputState] = useState<string>(userState.nickName);
   const [editState, setEditState] = useState<boolean>(false);
   const isInputActive = editState === true;
   return (
     <Wrapper>
       <figure>
         <picture>
-          <img src={profile} alt="프로필 사진" width="60" height="60" />
+          <img
+            src={userState.profile}
+            alt="프로필 사진"
+            width="60"
+            height="60"
+          />
         </picture>
       </figure>
       <div>
-        <div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (isInputActive)
+              if (inputState === userState.nickName || inputState === "")
+                setInputState(userState.nickName);
+              else
+                setUserState((prevState) => ({
+                  ...prevState,
+                  nickName: inputState,
+                }));
+            setEditState(!editState);
+          }}
+        >
           {isInputActive ? (
             <input
               type="text"
@@ -30,22 +46,22 @@ export const UserCard = ({
               onChange={(e) => setInputState(e.currentTarget.value)}
             />
           ) : (
-            <h2>{nickName}</h2>
+            <h2>{userState.nickName}</h2>
           )}
-          <button
-            type="button"
-            aria-label="별명 수정하기"
-            onClick={() => setEditState(!editState)}
-          >
+          <button type="submit" aria-label="별명 수정하기">
             <picture>
-              <source type="image/webp" srcSet={EditImg} />
+              <source type="image/svg+xml" srcSet={EditImg} />
               <img alt="수정 펜" width="12" height="12" />
             </picture>
           </button>
-        </div>
+        </form>
         <span>
           {`가입한 지 ${Math.floor(
-            (new Date().getTime() - Date.parse(joinDate)) / 1000 / 60 / 60 / 24
+            (new Date().getTime() - Date.parse(userState.joinDate)) /
+              1000 /
+              60 /
+              60 /
+              24
           )}일째`}
         </span>
       </div>
@@ -74,7 +90,7 @@ const Wrapper = styled.article`
     display: flex;
     flex-direction: column;
 
-    div {
+    form {
       width: 100%;
 
       display: flex;
