@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import { dummyNews } from "../../../libs/constants/news";
+import { useParams } from "react-router-dom";
 
 export const NewsDetailPage = () => {
-  const formattedContent = dummyNews.content
+  const { id } = useParams();
+  const news = dummyNews.filter((v) => v.id === parseInt(id!))[0];
+  const formattedContent = news.content
     .split(/\n/)
     .map((v) => v.trim())
     .filter((v) => v);
   return (
     <Wrapper>
       <article>
-        <h1>{dummyNews.title}</h1>
+        <h1>{news.title}</h1>
+        <h2>{news.subTitle}</h2>
         {formattedContent.map((v, i) => (
           <p key={`paragraph${i}`}>{v}</p>
         ))}
@@ -41,9 +45,17 @@ const Wrapper = styled.main`
     gap: 8px;
 
     h1 {
+      width: 90vw;
+    }
+
+    h2 {
       margin-bottom: 16px;
 
       width: 90vw;
+
+      color: ${({ theme }) => theme.colors.background6};
+      font-size: ${({ theme }) => theme.fontSizes.text};
+      font-weight: 600;
     }
 
     p {
