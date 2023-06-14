@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { PostLoadResponseType } from "../../../types/post";
-import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { UserAgentStateAtom } from "../../../atoms/userAgentState";
+import { sendBridge } from "../../../libs/apis/bridge";
 
 export const PostItem = ({
   id,
@@ -9,15 +11,24 @@ export const PostItem = ({
   writeDate,
   preview,
 }: PostLoadResponseType) => {
+  const userAgentState = useRecoilValue<"Android" | "iOS" | "">(
+    UserAgentStateAtom
+  );
   return (
     <Wrapper>
-      <Link to={`/community/${id}`}>
+      <button
+        type="button"
+        onClick={() => {
+          console.log(id);
+          sendBridge("navigate", { id: `${id}` }, userAgentState);
+        }}
+      >
         <div>
           <h3>{title}</h3>
           <p>{preview}</p>
         </div>
         <span>{`${writer ? `작성자 : ${writer} | ` : ""}${writeDate}`}</span>
-      </Link>
+      </button>
     </Wrapper>
   );
 };
@@ -25,7 +36,7 @@ export const PostItem = ({
 const Wrapper = styled.li`
   width: 100%;
 
-  a {
+  button {
     width: 100%;
     height: 62px;
 
