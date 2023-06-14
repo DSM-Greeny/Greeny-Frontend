@@ -136,7 +136,7 @@ export const Map = () => {
 
 const Wrapper = styled.div`
   width: 90vw;
-  min-height: 401px;
+  min-height: 300px;
 
   ${({ theme }) => theme.commons.boxShadow}
 
