@@ -8,22 +8,26 @@ import {
 import { PlaceStateAtom } from "../../atoms/placeState";
 import { Map } from "../../components/map";
 import { PlaceDetail } from "../../components/place/detail";
-import { MapPageMenu } from "../../components/menu/mapPage";
+import { SearchInput } from "../../components/searchInput";
+import { PlaceList } from "../../components/place/list";
+import { useRef } from "react";
 
 export const MapPage = () => {
   const selectedState =
     useRecoilValue<SelectedStateAtomType>(SelectedStateAtom);
   const placeState = useRecoilValue<PlaceType[]>(PlaceStateAtom);
   const isSelectedSet = selectedState.id !== 0;
+  const listRef = useRef<HTMLUListElement>(null);
   return (
     <Wrapper>
+      <SearchInput listRef={listRef} />
       <Map />
       {isSelectedSet ? (
         <PlaceDetail
           place={placeState.filter((v) => v.id == selectedState.id)[0]}
         />
       ) : (
-        <MapPageMenu />
+        <PlaceList listRef={listRef} />
       )}
     </Wrapper>
   );
