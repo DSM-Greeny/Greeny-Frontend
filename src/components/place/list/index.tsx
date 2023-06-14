@@ -17,7 +17,7 @@ interface PlaceListProps {
   listRef: React.RefObject<HTMLUListElement>;
 }
 
-const PlaceList = ({ listRef }: PlaceListProps) => {
+export const PlaceList = ({ listRef }: PlaceListProps) => {
   const placeState = useRecoilValue<PlaceType[]>(PlaceStateAtom);
   const searchState = useRecoilValue<string>(SearchStateAtom);
   const setSelectedState =
@@ -89,8 +89,6 @@ const PlaceList = ({ listRef }: PlaceListProps) => {
     </Wrapper>
   );
 };
-
-export default PlaceList;
 
 const Wrapper = styled.ul`
   width: 90vw;

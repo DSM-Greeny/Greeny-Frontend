@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CommunityPage from "./pages/community";
-import MapPage from "./pages/map";
-import MyPage from "./pages/myPage";
-import PostDetailPage from "./pages/detail/post";
-import NewsDetailPage from "./pages/detail/news";
 import { useSetRecoilState } from "recoil";
 import { UserAgentStateAtom } from "./atoms/userAgentState";
 import { useEffect } from "react";
+import { CommunityPage } from "./pages/community";
+import { PostDetailPage } from "./pages/detail/post";
+import { MapPage } from "./pages/map";
+import { MyPage } from "./pages/myPage";
+import { NewsDetailPage } from "./pages/detail/news";
 
 const App = () => {
   const setUserAgentState = useSetRecoilState<"" | "Android" | "iOS">(

@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { styled } from "styled-components";
-import SearchInput from "../../searchInput";
-import PlaceList from "../../place/list";
+import { SearchInput } from "../../searchInput";
+import { PlaceList } from "../../place/list";
 
-const MapPageMenu = () => {
+export const MapPageMenu = () => {
   const listRef = useRef<HTMLUListElement>(null);
   return (
     <Wrapper>
@@ -12,8 +12,6 @@ const MapPageMenu = () => {
     </Wrapper>
   );
 };
-
-export default MapPageMenu;
 
 const Wrapper = styled.article`
   width: 90vw;

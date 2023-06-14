@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PostLoadResponseType } from "../../../types/post";
 import { Link } from "react-router-dom";
 
-const PostItem = ({
+export const PostItem = ({
   id,
   title,
   writer,
@@ -21,8 +21,6 @@ const PostItem = ({
     </Wrapper>
   );
 };
-
-export default PostItem;
 
 const Wrapper = styled.li`
   width: 100%;

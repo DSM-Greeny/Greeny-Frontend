@@ -4,7 +4,11 @@ import { UserLoadResponseType } from "../../types/user";
 import { useState } from "react";
 import { dummyUser } from "../../libs/constants/user";
 
-const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
+export const UserCard = ({
+  profile,
+  nickName,
+  joinDate,
+}: UserLoadResponseType) => {
   const [inputState, setInputState] = useState<string>(dummyUser.nickName);
   const [editState, setEditState] = useState<boolean>(false);
   const isInputActive = editState === true;
@@ -48,8 +52,6 @@ const UserItem = ({ profile, nickName, joinDate }: UserLoadResponseType) => {
     </Wrapper>
   );
 };
-
-export default UserItem;
 
 const Wrapper = styled.article`
   width: 90vw;

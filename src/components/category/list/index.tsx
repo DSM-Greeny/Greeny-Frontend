@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import CategoryItem from "../item";
 import { dummyCategories } from "../../../libs/constants/categories";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { CategoryStateAtomType } from "../../../atoms/categoryState";
@@ -9,12 +8,13 @@ import {
   ScrollStateAtom,
   ScrollStateAtomType,
 } from "../../../atoms/scrollState";
+import { CategoryItem } from "../item";
 
 interface CategoryListProps {
   listRef: React.RefObject<HTMLUListElement>;
 }
 
-const CategoryList = ({ listRef }: CategoryListProps) => {
+export const CategoryList = ({ listRef }: CategoryListProps) => {
   const setScrollState =
     useSetRecoilState<ScrollStateAtomType>(ScrollStateAtom);
   const [categoryState, setCategoryState] =
@@ -49,8 +49,6 @@ const CategoryList = ({ listRef }: CategoryListProps) => {
     </Wrapper>
   );
 };
-
-export default CategoryList;
 
 interface WrapperProps {
   scrollable: "true" | "false";

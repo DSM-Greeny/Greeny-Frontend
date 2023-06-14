@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import SearchInput from "../../searchInput";
-import CategoryList from "../../category/list";
-import CommunityPagePostList from "../../post/list/community";
 import { useRef } from "react";
+import { SearchInput } from "../../searchInput";
+import { CategoryList } from "../../category/list";
+import { CommunityPagePostList } from "../../post/list/community";
 
-const CommunityPageMenu = () => {
+export const CommunityPageMenu = () => {
   const listRef = useRef<HTMLUListElement>(null);
   return (
     <Wrapper>
@@ -14,8 +14,6 @@ const CommunityPageMenu = () => {
     </Wrapper>
   );
 };
-
-export default CommunityPageMenu;
 
 const Wrapper = styled.article`
   display: flex;

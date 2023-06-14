@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { dummyNews } from "../../../libs/constants/news";
 
-const NewsDetailPage = () => {
+export const NewsDetailPage = () => {
   const formattedContent = dummyNews.content
     .split(/\n/)
     .map((v) => v.trim())
@@ -17,8 +17,6 @@ const NewsDetailPage = () => {
     </Wrapper>
   );
 };
-
-export default NewsDetailPage;
 
 const Wrapper = styled.main`
   padding-left: 5vw;

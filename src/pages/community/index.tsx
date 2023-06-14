@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import CommunityPageMenu from "../../components/menu/community";
+import { CommunityPageMenu } from "../../components/menu/community";
 
-const CommunityPage = () => {
+export const CommunityPage = () => {
   return (
     <Wrapper>
       <h1>친환경 공지사항</h1>
@@ -9,8 +9,6 @@ const CommunityPage = () => {
     </Wrapper>
   );
 };
-
-export default CommunityPage;
 
 const Wrapper = styled.main`
   padding-left: 5vw;

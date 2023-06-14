@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import PostItem from "../../item";
 import { dummyPosts } from "../../../../libs/constants/posts";
 import { useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
@@ -7,8 +6,9 @@ import {
   ScrollStateAtom,
   ScrollStateAtomType,
 } from "../../../../atoms/scrollState";
+import { PostItem } from "../../item";
 
-const MyPagePostList = () => {
+export const MyPagePostList = () => {
   const listRef = useRef<HTMLUListElement>(null);
   const [scrollState, setScrollState] =
     useRecoilState<ScrollStateAtomType>(ScrollStateAtom);
@@ -44,8 +44,6 @@ const MyPagePostList = () => {
     </Wrapper>
   );
 };
-
-export default MyPagePostList;
 
 const Wrapper = styled.article`
   width: 90vw;

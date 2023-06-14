@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import PostItem from "../../item";
+import styled from "styled-components"; 
 import { useEffect } from "react";
 import { dummyPosts } from "../../../../libs/constants/posts";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -12,12 +11,15 @@ import {
   CategoryStateAtom,
   CategoryStateAtomType,
 } from "../../../../atoms/categoryState";
+import { PostItem } from "../../item";
 
 interface CommunityPagePostListProps {
   listRef: React.RefObject<HTMLUListElement>;
 }
 
-const CommunityPagePostList = ({ listRef }: CommunityPagePostListProps) => {
+export const CommunityPagePostList = ({
+  listRef,
+}: CommunityPagePostListProps) => {
   const categoryState =
     useRecoilValue<CategoryStateAtomType>(CategoryStateAtom);
   const searchState = useRecoilValue<string>(SearchStateAtom);
@@ -57,8 +59,6 @@ const CommunityPagePostList = ({ listRef }: CommunityPagePostListProps) => {
     </Wrapper>
   );
 };
-
-export default CommunityPagePostList;
 
 const Wrapper = styled.ul`
   margin-top: 8px;

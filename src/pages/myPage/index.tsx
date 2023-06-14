@@ -1,20 +1,20 @@
 import styled from "styled-components";
-import UserItem from "../../components/userItem";
-import MyPagePostList from "../../components/post/list/myPage";
-import MyPageMenu from "../../components/menu/myPage";
 import { dummyUser } from "../../libs/constants/user";
 import { sendBridge } from "../../libs/apis/bridge";
 import { useRecoilValue } from "recoil";
 import { UserAgentStateAtom } from "../../atoms/userAgentState";
+import { UserCard } from "../../components/userCard";
+import { MyPagePostList } from "../../components/post/list/myPage";
+import { MyPageMenu } from "../../components/menu/myPage";
 
-const MyPage = () => {
+export const MyPage = () => {
   const userAgentState = useRecoilValue<"" | "Android" | "iOS">(
     UserAgentStateAtom
   );
   return (
     <Wrapper>
       <h1>마이페이지</h1>
-      <UserItem
+      <UserCard
         profile={dummyUser.profile}
         nickName={dummyUser.nickName}
         joinDate={dummyUser.joinDate}
@@ -47,8 +47,6 @@ const MyPage = () => {
     </Wrapper>
   );
 };
-
-export default MyPage;
 
 const Wrapper = styled.main`
   padding-left: 5vw;

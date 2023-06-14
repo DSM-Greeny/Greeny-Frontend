@@ -3,7 +3,7 @@ import { dummyPosts } from "../../../libs/constants/posts";
 import { isHttpsUrl } from "../../../libs/constants/isHttpsUrl";
 import { useParams } from "react-router-dom";
 
-const PostDetailPage = () => {
+export const PostDetailPage = () => {
   const { id } = useParams();
   const post = dummyPosts.filter((v) => v.id === parseInt(id!))[0];
   const formattedContent = post
@@ -31,8 +31,6 @@ const PostDetailPage = () => {
     </Wrapper>
   );
 };
-
-export default PostDetailPage;
 
 const Wrapper = styled.main`
   padding-left: 5vw;

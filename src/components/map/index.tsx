@@ -9,7 +9,7 @@ import {
 } from "../../atoms/selectedState";
 import { PlaceStateAtom } from "../../atoms/placeState";
 
-const Map = () => {
+export const Map = () => {
   const setPlaceState = useSetRecoilState<PlaceType[]>(PlaceStateAtom);
   const [selected, setSelectedState] =
     useRecoilState<SelectedStateAtomType>(SelectedStateAtom);
@@ -133,8 +133,6 @@ const Map = () => {
   }, [mapRef.current]);
   return <Wrapper ref={mapRef}>권한을 기다리는 중...</Wrapper>;
 };
-
-export default Map;
 
 const Wrapper = styled.div`
   width: 90vw;

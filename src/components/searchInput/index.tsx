@@ -9,7 +9,7 @@ interface SearchInputProps {
   listRef: React.RefObject<HTMLUListElement>;
 }
 
-const SearchInput = ({ listRef }: SearchInputProps) => {
+export const SearchInput = ({ listRef }: SearchInputProps) => {
   const setScrollState =
     useSetRecoilState<ScrollStateAtomType>(ScrollStateAtom);
   const [searchState, setSearchState] = useRecoilState<string>(SearchStateAtom);
@@ -37,8 +37,6 @@ const SearchInput = ({ listRef }: SearchInputProps) => {
     </Wrapper>
   );
 };
-
-export default SearchInput;
 
 const Wrapper = styled.form`
   width: 90vw;

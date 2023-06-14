@@ -4,11 +4,9 @@ interface MyPageMenuProps {
   children: JSX.Element | JSX.Element[];
 }
 
-const MyPageMenu = ({ children }: MyPageMenuProps) => {
+export const MyPageMenu = ({ children }: MyPageMenuProps) => {
   return <Wrapper>{children}</Wrapper>;
 };
-
-export default MyPageMenu;
 
 const Wrapper = styled.article`
   width: 90vw;

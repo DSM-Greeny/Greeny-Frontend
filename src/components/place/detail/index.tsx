@@ -12,7 +12,7 @@ interface PlaceDetailProps {
   place: PlaceType;
 }
 
-const PlaceDetail = ({ place }: PlaceDetailProps) => {
+export const PlaceDetail = ({ place }: PlaceDetailProps) => {
   const setSelectedState =
     useSetRecoilState<SelectedStateAtomType>(SelectedStateAtom);
   return (
@@ -56,8 +56,6 @@ const PlaceDetail = ({ place }: PlaceDetailProps) => {
     </Wrapper>
   );
 };
-
-export default PlaceDetail;
 
 const Wrapper = styled.article`
   width: 90vw;

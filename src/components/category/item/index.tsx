@@ -6,7 +6,11 @@ interface CategoryItemProps {
   onClick: () => void;
 }
 
-const CategoryItem = ({ active, category, onClick }: CategoryItemProps) => {
+export const CategoryItem = ({
+  active,
+  category,
+  onClick,
+}: CategoryItemProps) => {
   return (
     <Wrapper className={active ? "active" : undefined}>
       <button type="button" onClick={onClick}>
@@ -15,8 +19,6 @@ const CategoryItem = ({ active, category, onClick }: CategoryItemProps) => {
     </Wrapper>
   );
 };
-
-export default CategoryItem;
 
 const Wrapper = styled.li`
   height: 25px;

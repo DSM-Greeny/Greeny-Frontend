@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import Map from "../../components/map";
 import { PlaceType } from "../../types/place";
-import PlaceDetail from "../../components/place/detail";
 import { useRecoilValue } from "recoil";
 import {
   SelectedStateAtom,
   SelectedStateAtomType,
 } from "../../atoms/selectedState";
 import { PlaceStateAtom } from "../../atoms/placeState";
-import MapPageMenu from "../../components/menu/mapPage";
+import { Map } from "../../components/map";
+import { PlaceDetail } from "../../components/place/detail";
+import { MapPageMenu } from "../../components/menu/mapPage";
 
-const MapPage = () => {
+export const MapPage = () => {
   const selectedState =
     useRecoilValue<SelectedStateAtomType>(SelectedStateAtom);
   const placeState = useRecoilValue<PlaceType[]>(PlaceStateAtom);
@@ -28,8 +28,6 @@ const MapPage = () => {
     </Wrapper>
   );
 };
-
-export default MapPage;
 
 const Wrapper = styled.main`
   padding-left: 5vw;
