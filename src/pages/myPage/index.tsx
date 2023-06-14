@@ -1,15 +1,9 @@
 import styled from "styled-components";
-import { sendBridge } from "../../libs/apis/bridge";
-import { useRecoilValue } from "recoil";
-import { UserAgentStateAtom } from "../../atoms/userAgentState";
 import { UserCard } from "../../components/userCard";
 import { MyPagePostList } from "../../components/post/list/myPage";
 import { MyPageMenu } from "../../components/menu/myPage";
 
 export const MyPage = () => {
-  const userAgentState = useRecoilValue<"" | "Android" | "iOS">(
-    UserAgentStateAtom
-  );
   return (
     <Wrapper>
       <h1>마이페이지</h1>
@@ -27,8 +21,9 @@ export const MyPage = () => {
         <button
           type="button"
           onClick={() => {
-            console.log("HELLO");
-            sendBridge("logout", { message: "logout" }, userAgentState);
+            (window as any).webkit.messageHandlers.logout.postMessage({
+              message: "logout",
+            });
           }}
         >
           로그아웃

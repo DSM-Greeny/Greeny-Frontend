@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import { PostLoadResponseType } from "../../../types/post";
-import { useRecoilValue } from "recoil";
-import { UserAgentStateAtom } from "../../../atoms/userAgentState";
-import { sendBridge } from "../../../libs/apis/bridge";
 
 export const PostItem = ({
   id,
@@ -11,16 +8,14 @@ export const PostItem = ({
   writeDate,
   preview,
 }: PostLoadResponseType) => {
-  const userAgentState = useRecoilValue<"Android" | "iOS" | "">(
-    UserAgentStateAtom
-  );
   return (
     <Wrapper>
       <button
         type="button"
         onClick={() => {
-          console.log(id);
-          sendBridge("navigate", { id: `${id}` }, userAgentState);
+          (window as any).webkit.messageHandlers.navigate.postMessage({
+            id: `${id}`,
+          });
         }}
       >
         <div>
