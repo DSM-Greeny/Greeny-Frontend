@@ -47,6 +47,7 @@ const Wrapper = styled.main`
   padding-left: 5vw;
   padding-right: 5vw;
   margin-top: 16px;
+  margin-bottom: 14px;
 
   width: 100vw;
 

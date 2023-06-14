@@ -24,10 +24,10 @@ const GlobalStyle = createGlobalStyle`
     html, body {
         background-color: ${({ theme }) => theme.colors.background1};
 
-        max-width: 100%;
-        max-height: 100%;
+        max-width: 100%; 
 
         overflow: hidden;
+        overflow-y: auto;
     }
 
     a {
