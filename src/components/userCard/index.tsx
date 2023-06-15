@@ -1,19 +1,13 @@
 import styled from "styled-components";
 import { EditImg } from "../../assets/images";
-import { useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { UserStateAtom, UserStateAtomType } from "../../atoms/userState";
 import { ModalStateAtom, ModalStateAtomType } from "../../atoms/modalState";
 import { EditProfile } from "../modal/editProfile";
 
 export const UserCard = () => {
-  const [modalState, setModalState] =
-    useRecoilState<ModalStateAtomType>(ModalStateAtom);
-  const [userState, setUserState] =
-    useRecoilState<UserStateAtomType>(UserStateAtom);
-  const [inputState, setInputState] = useState<string>(userState.nickName);
-  const [editState, setEditState] = useState<boolean>(false);
-  const isInputActive = editState === true;
+  const setModalState = useSetRecoilState<ModalStateAtomType>(ModalStateAtom);
+  const userState = useRecoilValue<UserStateAtomType>(UserStateAtom);
   return (
     <Wrapper>
       <figure>
@@ -33,18 +27,8 @@ export const UserCard = () => {
             setModalState(<EditProfile />);
           }}
         >
-          {isInputActive ? (
-            <input
-              type="text"
-              autoFocus={true}
-              placeholder="새로운 별명"
-              value={inputState}
-              onChange={(e) => setInputState(e.currentTarget.value)}
-            />
-          ) : (
-            <h2>{userState.nickName}</h2>
-          )}
-          <button type="submit" aria-label="별명 수정하기">
+          <h2>{userState.nickName}</h2>
+          <button type="submit" aria-label="프로필 수정하기">
             <picture>
               <source type="image/svg+xml" srcSet={EditImg} />
               <img alt="수정 펜" width="12" height="12" />
@@ -90,7 +74,6 @@ const Wrapper = styled.article`
       width: 100%;
 
       display: flex;
-      justify-content: space-between;
 
       input {
         width: 100%;

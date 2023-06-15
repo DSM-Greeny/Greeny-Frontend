@@ -13,7 +13,9 @@ export const Modal = ({ children }: ModalProps) => {
     <>
       <Filter onClick={() => setModalState(undefined)} />
       <Wrapper>
-        <span>✖</span>
+        <button type="button" onClick={() => setModalState(undefined)}>
+          ✖
+        </button>
         {children}
       </Wrapper>
     </>,
@@ -48,9 +50,11 @@ const Wrapper = styled.div`
 
   z-index: 99;
 
-  > span {
+  > button {
     position: absolute;
     top: 16px;
     right: 16px;
+
+    cursor: pointer;
   }
 `;
