@@ -3,8 +3,12 @@ import { EditImg } from "../../assets/images";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { UserStateAtom, UserStateAtomType } from "../../atoms/userState";
+import { ModalStateAtom, ModalStateAtomType } from "../../atoms/modalState";
+import { EditProfile } from "../modal/editProfile";
 
 export const UserCard = () => {
+  const [modalState, setModalState] =
+    useRecoilState<ModalStateAtomType>(ModalStateAtom);
   const [userState, setUserState] =
     useRecoilState<UserStateAtomType>(UserStateAtom);
   const [inputState, setInputState] = useState<string>(userState.nickName);
@@ -26,15 +30,7 @@ export const UserCard = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            if (isInputActive)
-              if (inputState === userState.nickName || inputState === "")
-                setInputState(userState.nickName);
-              else
-                setUserState((prevState) => ({
-                  ...prevState,
-                  nickName: inputState,
-                }));
-            setEditState(!editState);
+            setModalState(<EditProfile />);
           }}
         >
           {isInputActive ? (
