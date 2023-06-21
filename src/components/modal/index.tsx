@@ -34,6 +34,10 @@ const Filter = styled.div`
   height: 100%;
 
   z-index: 98;
+
+  ${({ theme }) => theme.animations.fade};
+
+  animation: fade 0.25s ease;
 `;
 
 const Wrapper = styled.div`
@@ -43,12 +47,16 @@ const Wrapper = styled.div`
 
   width: 90vw;
 
+  z-index: 99;
+
   ${({ theme }) => theme.commons.boxShadow};
 
   margin-left: 5vw;
   margin-right: 5vw;
 
-  z-index: 99;
+  ${({ theme }) => theme.animations.fade};
+
+  animation: fade 0.25s ease;
 
   > button {
     position: absolute;

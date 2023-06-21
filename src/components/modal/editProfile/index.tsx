@@ -35,7 +35,7 @@ export const EditProfile = () => {
       <label htmlFor="profileInput">
         <figure>
           <picture>
-            <img src={inputState.profile} alt="" />
+            <img src={inputState.profile} alt="" width="128" height="128" />
           </picture>
           <figcaption>프로필 사진 변경하기</figcaption>
         </figure>
@@ -95,7 +95,9 @@ const Wrapper = styled.form`
         width: 128px;
         height: 128px;
 
+        cursor: pointer;
         border-radius: 50%;
+        object-fit: cover;
       }
 
       figcaption {

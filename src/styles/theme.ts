@@ -1,3 +1,14 @@
+const animations = {
+  fade: `@keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }`,
+};
+
 const colors = {
   main: "#66A696",
   main2: "#8BBBAF",
@@ -29,9 +40,10 @@ const commons = {
 };
 
 const theme = {
+  animations,
   colors,
-  fontSizes,
   commons,
+  fontSizes,
 };
 
 export default theme;

@@ -62,6 +62,13 @@ const Wrapper = styled.article`
 
   > figure {
     margin-right: 16px;
+
+    picture img {
+      width: 60px;
+      height: 60px;
+
+      object-fit: cover;
+    }
   }
 
   > div {
