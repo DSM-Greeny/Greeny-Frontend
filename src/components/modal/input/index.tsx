@@ -23,17 +23,16 @@ export const ModalInput = ({
 const Wrapper = styled.input`
   width: 100%;
 
-  ${({ theme }) => theme.commons.boxShadow}
-
-  padding: 13px 16px;
-
   color: ${({ theme }) => theme.colors.background6};
   font-size: ${({ theme }) => theme.fontSizes.subText};
   font-weight: 400;
 
-  :focus {
-    outline: none;
-  }
+  outline: none;
+  border: 1px solid ${({ theme }) => theme.colors.background2};
+
+  ${({ theme }) => theme.commons.boxShadow}
+
+  padding: 13px 16px;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.background5};

@@ -65,9 +65,7 @@ const Wrapper = styled.form`
     color: ${({ theme }) => theme.colors.background6};
     font-size: ${({ theme }) => theme.fontSizes.subText};
     font-weight: 400;
-  }
 
-  input:focus {
     outline: none;
   }
 
