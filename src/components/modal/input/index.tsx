@@ -28,7 +28,7 @@ const Wrapper = styled.input`
   font-weight: 400;
 
   outline: none;
-  border: 1px solid ${({ theme }) => theme.colors.background2};
+  border: 2px solid ${({ theme }) => theme.colors.background2};
 
   ${({ theme }) => theme.commons.boxShadow}
 
