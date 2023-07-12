@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import { dummyCategories } from "../../libs/constants/categories";
 
 export interface CategoryStateAtomType {
   categoryResponses: string[];
@@ -7,5 +8,5 @@ export interface CategoryStateAtomType {
 
 export const CategoryStateAtom = atom<CategoryStateAtomType>({
   key: "categoryState",
-  default: { categoryResponses: [], category: "전체" },
+  default: { categoryResponses: dummyCategories, category: "전체" },
 });

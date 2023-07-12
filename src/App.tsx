@@ -7,6 +7,7 @@ import { NewsDetailPage } from "./pages/detail/news";
 import { useRecoilValue } from "recoil";
 import { ModalStateAtom, ModalStateAtomType } from "./atoms/modalState";
 import { Modal } from "./components/modal";
+import { CommunityCreatePage } from "./pages/create";
 
 const App = () => {
   const modalState = useRecoilValue<ModalStateAtomType>(ModalStateAtom);
@@ -17,6 +18,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/community" element={<CommunityPage />} />
+          <Route path="/community/create" element={<CommunityCreatePage />} />
           <Route path="/community/:id" element={<PostDetailPage />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/mypage" element={<MyPage />} />

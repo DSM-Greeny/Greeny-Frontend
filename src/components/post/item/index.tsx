@@ -13,9 +13,7 @@ export const PostItem = ({
       <button
         type="button"
         onClick={() => {
-          (window as any).webkit.messageHandlers.navigate.postMessage({
-            id: `${id}`,
-          });
+          (window as any).webkit.messageHandlers.navigate.postMessage(id);
         }}
       >
         <div>
