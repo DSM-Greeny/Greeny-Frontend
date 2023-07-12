@@ -20,4 +20,13 @@ const Wrapper = styled.article`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+
+  ul {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  ul::-webkit-scrollbar {
+    display: none;
+  }
 `;
