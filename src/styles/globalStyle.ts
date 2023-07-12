@@ -30,6 +30,14 @@ const GlobalStyle = createGlobalStyle`
         overflow-y: auto;
     }
 
+    input,
+    textarea,
+    button,
+    select,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
     a {
         text-decoration: none;
     }
